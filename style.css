@@ -1,0 +1,518 @@
+/* --- CSS STYLES --- */
+
+/* General Body and Font Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f8f8f8; /* Light white/off-white */
+    color: #333; /* Dark gray for text */
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Color Variables for easy theme management */
+:root {
+    --primary-blue: #3498db; /* A vibrant blue */
+    --secondary-blue: #2980b9; /* A darker blue for hover */
+    --white: #ffffff;
+    --light-gray: #ecf0f1;
+    --gray: #bdc3c7;
+    --dark-gray: #7f8c8d;
+    --light-black: #2c3e50; /* Very dark gray, almost black */
+    --border-color: #ddd;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Buttons Styling */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: center;
+}
+
+.primary-btn {
+    background-color: var(--primary-blue);
+    color: var(--white);
+}
+
+.primary-btn:hover {
+    background-color: var(--secondary-blue);
+    transform: translateY(-2px);
+}
+
+.secondary-btn {
+    background-color: var(--light-gray);
+    color: var(--dark-gray);
+    border: 1px solid var(--gray);
+}
+
+.secondary-btn:hover {
+    background-color: var(--gray);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+/* Header & Navigation Bar */
+header {
+    background-color: var(--light-black);
+    color: var(--white);
+    box-shadow: 0 2px 5px var(--shadow-color);
+    position: sticky; /* Keeps header at the top when scrolling */
+    top: 0;
+    z-index: 1000; /* Ensures header is above other content */
+}
+
+.top-bar {
+    background-color: var(--primary-blue);
+    text-align: center;
+    padding: 8px 0;
+    font-size: 0.9em;
+}
+
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    max-width: 1200px; /* Max width for content */
+    margin: 0 auto; /* Center the navigation */
+}
+
+.logo a {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: var(--white);
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px; /* Space between navigation items */
+}
+
+.nav-links a {
+    color: var(--white);
+    font-weight: 500;
+    padding: 5px 0;
+    position: relative;
+}
+
+/* Underline effect on hover for nav links */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-blue);
+    bottom: 0;
+    left: 0;
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-icons {
+    display: flex;
+    gap: 20px; /* Space between icons */
+}
+
+.nav-icons a {
+    color: var(--white);
+    font-size: 1.2em;
+    position: relative;
+}
+
+.nav-icons a:hover {
+    color: var(--primary-blue);
+}
+
+/* Hero Section Styling */
+.hero-section {
+    background: url('images/hero-bg.jpg') no-repeat center center/cover; /* Path to your hero background image */
+    color: var(--white);
+    text-align: center;
+    padding: 100px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px; /* Minimum height for the hero section */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4); /* Text shadow for readability */
+}
+
+.hero-section h1 {
+    font-size: 3.5em;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.hero-section p {
+    font-size: 1.3em;
+    margin-bottom: 30px;
+    max-width: 700px;
+}
+
+/* Product Showcase Sections (New Arrivals, All Products) */
+.product-showcase {
+    padding: 60px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.product-showcase h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: var(--light-black);
+    position: relative;
+    padding-bottom: 10px;
+}
+
+/* Underline effect for section titles */
+.product-showcase h2::after {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-blue);
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid columns */
+    gap: 30px; /* Space between product cards */
+    justify-content: center;
+}
+
+.product-card {
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px var(--shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.product-card img {
+    width: 100%;
+    height: 550px; /* Fixed height for product images */
+    object-fit: cover; /* Ensures images cover the area without distortion */
+    display: block;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 15px;
+}
+
+.product-card h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: var(--light-black);
+}
+
+.product-card p {
+    font-size: 0.9em;
+    color: var(--dark-gray);
+    margin: 0 15px 15px;
+    text-align: center;
+}
+
+.product-card .price {
+    font-size: 1.4em;
+    color: var(--light-black);
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+/* Styles for the entire discounted price text (e.g., "2000 PKR") */
+.discount-price {
+    color: #e74c3c; /* This is the red color */
+    font-family: 'Georgia', serif; /* Or any other font you prefer */
+    font-weight: bold; /* Makes the entire discounted part bold */
+    font-size: 1.1em; /* Makes this whole part slightly larger than the normal price */
+}
+
+/* Styles for just the numerical value within the discounted price (e.g., "2000") */
+.discount-value {
+    font-size: 1.3em; /* Makes "2000" 1.3 times the size of its parent (which is 1.1em) */
+}
+
+.product-card .view-details-btn {
+    background-color: var(--light-gray);
+    color: var(--dark-gray);
+    border: 1px solid var(--gray);
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.product-card .view-details-btn:hover {
+    background-color: var(--gray);
+    color: var(--white);
+}
+
+.product-showcase .view-all {
+    margin-top: 50px;
+}
+
+/* About Us Section */
+.about-section {
+    background-color: var(--light-gray);
+    padding: 60px 5%;
+    text-align: center;
+}
+
+.about-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: var(--light-black);
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.about-section h2::after {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-blue);
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.about-section p {
+    max-width: 800px;
+    margin: 0 auto 20px;
+    line-height: 1.8;
+    color: var(--dark-gray);
+}
+
+/* Contact Section (now a dedicated "page" within the single file) */
+.contact-section {
+    padding: 60px 5%;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    color: var(--light-black);
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.contact-section h2::after {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-blue);
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.contact-section p {
+    margin-bottom: 30px;
+    color: var(--dark-gray);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-form input:not([type='submit']), /* Exclude submit button from this style */
+.contact-form textarea {
+    padding: 15px;
+    border: 1px solid var(--gray);
+    border-radius: 5px;
+    font-size: 1em;
+    width: 100%;
+    box-sizing: border-box; /* Ensures padding doesn't increase total width */
+}
+
+.contact-form textarea {
+    resize: vertical; /* Allow vertical resizing of textarea */
+}
+
+.contact-form button {
+    align-self: center; /* Center the button within the form */
+    width: 200px;
+}
+
+.contact-info-details {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+.contact-info-details h3 {
+    font-size: 1.8em;
+    color: var(--light-black);
+    margin-bottom: 20px;
+}
+
+.contact-info-details p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    color: var(--dark-gray);
+}
+
+.contact-info-details i {
+    color: var(--primary-blue);
+    font-size: 1.2em;
+}
+
+
+/* Footer Styling */
+footer {
+    background-color: var(--light-black);
+    color: var(--white);
+    padding: 40px 5%;
+    font-size: 0.9em;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap; /* Allows sections to wrap on smaller screens */
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto 30px;
+    gap: 30px; /* Space between footer sections */
+}
+
+.footer-section {
+    flex: 1; /* Allows sections to grow and shrink */
+    min-width: 250px; /* Minimum width before wrapping */
+}
+
+.footer-section h3 {
+    font-size: 1.4em;
+    margin-bottom: 20px;
+    color: var(--primary-blue);
+}
+
+.footer-section p, .footer-section ul li {
+    color: var(--gray);
+    line-height: 1.8;
+}
+
+.footer-section ul li a {
+    color: var(--gray);
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: var(--primary-blue);
+}
+
+.social-links a {
+    color: var(--white);
+    font-size: 1.5em;
+    margin-right: 15px;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--primary-blue);
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    margin-top: 20px;
+    color: var(--gray);
+}
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 768px) {
+    .main-nav {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 15px;
+        margin: 20px 0;
+    }
+
+    .nav-icons {
+        margin-top: 10px;
+    }
+
+    .hero-section h1 {
+        font-size: 2.5em;
+    }
+
+    .hero-section p {
+        font-size: 1em;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr; /* Single column on small screens */
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 50px;
+    }
+
+    .footer-section ul {
+        text-align: center;
+    }
+
+    .contact-info-details p {
+        justify-content: center; /* Center contact info on small screens */
+    }
+}
+/* Add this to your style.css file */
+.discount-price {
+    color: #e74c3c; /* A vibrant red color */
+    font-family: 'Georgia', serif; /* A different font, you can choose another */
+    font-weight: bold; /* Make it bold for emphasis */
+    font-size: 1.5em; /* Slightly larger than surrounding text */
+}
